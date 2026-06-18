@@ -1,0 +1,39 @@
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+
+        // Input array
+        int arr[] = {34, 54, 74, 32, 66, 32, 34, 54, 3, 65, 12, 8};
+
+        // Initialize largest and second largest
+        // Using MIN_VALUE handles negative numbers too
+        int lar = Integer.MIN_VALUE;
+        int sec_lar = Integer.MIN_VALUE;
+
+        // Traverse the array
+        for (int num : arr) {
+
+            // If current number is greater than largest
+            if (num > lar) {
+
+                // Current largest becomes second largest
+                sec_lar = lar;
+
+                // Update largest
+                lar = num;
+
+            }
+            // If current number is between largest and second largest
+            else if (num > sec_lar && num < lar) {
+
+                // Update second largest
+                sec_lar = num;
+            }
+        }
+
+        // Print results
+        System.out.println("Largest = " + lar);
+        System.out.println("Second Largest = " + sec_lar);
+    }
+}
