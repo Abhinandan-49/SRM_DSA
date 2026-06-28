@@ -1,0 +1,36 @@
+import java.util.Scanner;
+class Main {
+    public static double average(int[] salary) {
+        int min=salary[0];
+        int max=salary[0];
+        int sum=salary[0];
+        int n=salary.length;
+        for(int i=1;i<n;i++){
+            if (salary[i]>max){
+                max=salary[i];
+                sum+=salary[i];
+            }
+            else if(salary[i]<min){
+                min= salary[i];
+                sum+=salary[i];
+
+            }
+            else{
+                sum+=salary[i];
+            }
+        }
+        double avge=(sum-min-max)/(n-2);
+        return avge;
+    }
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] salary=new int[n];
+        for(int i=0;i<n;i++){
+            salary[i]=sc.nextInt();
+        }
+        double ans=average(salary);
+        System.out.println(ans);
+        
+    }
+}
